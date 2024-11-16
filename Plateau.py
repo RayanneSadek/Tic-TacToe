@@ -1,31 +1,24 @@
-# Initialisation du plateau
 def afficher_plateau(plateau):
     for i in range(3):
         print(f" {plateau[i*3]} | {plateau[i*3+1]} | {plateau[i*3+2]} ")
         if i < 2:
             print("---|---|---")
-    print()
+    print() # Initialisation du plateau
 
-# Vérification de la victoire
 def verifier_victoire(plateau, joueur):
-    # Vérifications des lignes, colonnes et diagonales
     for i in range(3):
-        # Lignes
         if plateau[i*3] == plateau[i*3+1] == plateau[i*3+2] == joueur:
-            return True
-        # Colonnes
+            return True # Lignes
         if plateau[i] == plateau[i+3] == plateau[i+6] == joueur:
-            return True
-    # Diagonales
+            return True  # Colonnes
     if plateau[0] == plateau[4] == plateau[8] == joueur:
-        return True
+        return True # Diagonale 1
     if plateau[2] == plateau[4] == plateau[6] == joueur:
-        return True
-    return False
+        return True # Diagonales 2
+    return False   # Vérification de la victoire
 
-# Vérification de l'égalité (match nul)
 def verifier_match_nul(plateau):
-    return all(c == 'X' or c == 'O' for c in plateau)
+    return all(c == 'X' or c == 'O' for c in plateau) # Vérification de l'égalité (match nul)
 
 # Fonction principale du jeu
 def morpion():
